@@ -3,77 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNS</title>
+    <title>Tulipanes y Fuegos Artificiales</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #000; /* Fondo negro para resaltar los fuegos artificiales */
         }
-        h1, h2 {
-            color: #6f2e2e;
+
+        /* Fondo de tulipanes morados */
+        .tulipanes {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            background: url('https://i.imgur.com/MUYPAVO.png') repeat-x;
+            background-size: contain;
         }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
+
+        /* Estilo de los fuegos artificiales */
+        .firework {
+            position: absolute;
+            bottom: 200px;
+            left: 50%;
+            width: 2px;
+            height: 150px;
+            background: linear-gradient(to top, yellow, red);
+            animation: launch 1s ease-in-out infinite, explode 1s ease-out 1s infinite;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 10px dotted #1732b7;
-            padding: 5px;
-            margin: 20px 0;
+
+        @keyframes launch {
+            0% {
+                transform: translateY(200px) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
         }
-        .reference {
-            font-size: 0.9em;
-            color: #555;
+
+        @keyframes explode {
+            0% {
+                box-shadow: 0 0 10px yellow, 0 0 20px red;
+            }
+            50% {
+                box-shadow: 0 0 20px yellow, 0 0 40px red;
+            }
+            100% {
+                opacity: 0;
+                box-shadow: none;
+            }
         }
-        .concept {
-            background-color: #c4ddf4;
-            padding: 10px;
-            margin: 10px 0;
-            border-left: 5px solid #3498db;
+
+        /* Duplicar los fuegos artificiales */
+        .firework:nth-child(2) {
+            left: 20%;
+            animation-delay: 0.5s;
+        }
+        .firework:nth-child(3) {
+            left: 80%;
+            animation-delay: 0.2s;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Que es DNS?</h1>
 
-        <p>El sistema de nombres de dominio (DNS) es el directorio telefónico de Internet. Las personas acceden a la información en línea a través de nombres de dominio como nytimes.com o espn.com. Los navegadores web interactúan mediante direcciones de Protocolo de Internet (IP). El DNS traduce los nombres de dominio a direcciones IP para que los navegadores puedan cargar los recursos de Internet.</p>
+    <!-- Contenedor de los tulipanes -->
+    <div class="tulipanes"></div>
 
-        <h2>Conceptos Clave</h2>
+    <!-- Fuegos artificiales animados -->
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
 
-        <div class="concept">
-            <h3>Como funciona?</h3>
-            <p>El proceso de solución de DNS supone convertir un nombre de servidor (como www.example.com) en una dirección IP compatible con el ordenador (como 192.168.1.1). Se da una dirección IP a cada dispositivo en Internet, y esa dirección será necesaria para encontrar el dispositivo apropiado de Internet, al igual que se usa la dirección de una calle para encontrar una casa concreta. Cuando un usuario quiere cargar una página, se debe traducir lo que el usuario escribe en su navegador web (example.com) a una dirección que el ordenador pueda entender para poder localizar la página web de example.com.</p>
-        </div>
-
-        <div class="concept">
-            <h3>Hay 4 servidores DNS implicados en la carga de un sitio web</h3>
-            <p><strong>DNS:</strong>es como un bibliotecario al que se le pide que busque un libro determinado en la biblioteca. El recursor DNS es un servidor diseñado para recibir consultas desde equipos cliente mediante aplicaciones como navegadores web. Normalmente, el recursor será el responsable de hacer solicitudes adicionales para satisfacer la consulta de DNS del cliente.</p>
-            <p><strong>Servidor de nombres raíz:</strong>es el primer paso para traducir (solucionar) los nombres de servidor legibles en direcciones IP. Se puede comparar a un índice en una biblioteca que apunta a diferentes estanterías de libros. Generalmente sirve como referencia de otras ubicaciones más específicas.</p>
-            <p><strong>Servidor de nombres TLD:</strong>el servidor de dominio de nivel superior (TLD) se puede comparar con una estantería de libros en una biblioteca. Es el paso siguiente en la búsqueda de una dirección IP específica y aloja la última parte de un nombre de servidor (en example.com, el servidor TLD es "com").</p>
-            <p><strong>Servidor de nombres autoritativo:</strong>se puede interpretar como un diccionario en una estantería de libros, en el que se puede consultar la definición de un nombre específico. El servidor de nombres autoritativo es la última parada en la consulta del servidor de nombres. Si cuenta con acceso al registro solicitado, devolverá la dirección IP del nombre del servidor solicitado al recursor de DNS (el bibliotecario) que hizo la solicitud inicial.</p>
-            
-        </div>
-        
-
-        <div class="concept">
-            <h3>Frontend y Backend</h3>
-            <p>El <strong>Frontend</strong> se refiere a la interfaz de usuario, lo que los usuarios ven e interactúan. El <strong>Backend</strong> se refiere a la lógica del servidor, bases de datos y API.</p>
-        </div>
-
-        <h2>Imágenes de Referencia</h2>
-
-       <center> <h1>Arquitectura de una Aplicación Web</h1>
-        <img src="DNS.png" alt="Funcionamiento DNS" /></center>
-
-        <center><h1>Flujo de Datos Cliente-Servidor</h1>
-        <img src="TU.png" alt="Ejemplo" /></center>
-
-        <h2>Referencias en Estilo APA</h2>
-        <p class="reference">Morville, P., & Rosenfeld, L. (2006). <em>Information architecture for the World Wide Web</em> (3rd ed.). O'Reilly Media.</p>
-        <p class="reference">Berners-Lee, T. (1999). <em>Weaving the Web: The original design and ultimate destiny of the World Wide Web by its inventor</em>. Harper San Francisco.</p>
-    </div>
 </body>
+</html>
