@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionamiento de Aplicaciones Web</title>
+    <title>DNS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,21 +38,26 @@
 </head>
 <body>
     <div class="container">
-        <h1>Funcionamiento de las Aplicaciones Web</h1>
+        <h1>Que es DNS?</h1>
 
-        <p>Las aplicaciones web son programas que los usuarios pueden utilizar a través de un navegador web. Estas aplicaciones utilizan una arquitectura cliente-servidor, donde el <strong>cliente</strong> (navegador) interactúa con el <strong>servidor</strong> mediante peticiones HTTP, y el servidor responde con páginas web dinámicas, normalmente construidas con HTML, CSS y JavaScript.</p>
+        <p>El sistema de nombres de dominio (DNS) es el directorio telefónico de Internet. Las personas acceden a la información en línea a través de nombres de dominio como nytimes.com o espn.com. Los navegadores web interactúan mediante direcciones de Protocolo de Internet (IP). El DNS traduce los nombres de dominio a direcciones IP para que los navegadores puedan cargar los recursos de Internet.</p>
 
         <h2>Conceptos Clave</h2>
 
         <div class="concept">
-            <h3>Cliente-Servidor</h3>
-            <p>La arquitectura cliente-servidor define cómo interactúan los dispositivos (clientes) con un servidor centralizado, donde el servidor procesa las solicitudes del cliente y devuelve los datos necesarios.</p>
+            <h3>Como funciona?</h3>
+            <p>El proceso de solución de DNS supone convertir un nombre de servidor (como www.example.com) en una dirección IP compatible con el ordenador (como 192.168.1.1). Se da una dirección IP a cada dispositivo en Internet, y esa dirección será necesaria para encontrar el dispositivo apropiado de Internet, al igual que se usa la dirección de una calle para encontrar una casa concreta. Cuando un usuario quiere cargar una página, se debe traducir lo que el usuario escribe en su navegador web (example.com) a una dirección que el ordenador pueda entender para poder localizar la página web de example.com.</p>
         </div>
 
         <div class="concept">
-            <h3>HTTP y HTTPS</h3>
-            <p>El Protocolo de Transferencia de Hipertexto (HTTP) es el medio estándar para la comunicación en la web. HTTPS es la versión segura, que cifra los datos entre el cliente y el servidor.</p>
+            <h3>Hay 4 servidores DNS implicados en la carga de un sitio web</h3>
+           <br> <p>Recursor de DNS:es como un bibliotecario al que se le pide que busque un libro determinado en la biblioteca. El recursor DNS es un servidor diseñado para recibir consultas desde equipos cliente mediante aplicaciones como navegadores web. Normalmente, el recursor será el responsable de hacer solicitudes adicionales para satisfacer la consulta de DNS del cliente.</p>
+          <br> <p>Servidor de nombres raíz:es el primer paso para traducir (solucionar) los nombres de servidor legibles en direcciones IP. Se puede comparar a un índice en una biblioteca que apunta a diferentes estanterías de libros. Generalmente sirve como referencia de otras ubicaciones más específicas.</p>
+           <br> <p>Servidor de nombres TLD:el servidor de dominio de nivel superior (TLD) se puede comparar con una estantería de libros en una biblioteca. Es el paso siguiente en la búsqueda de una dirección IP específica y aloja la última parte de un nombre de servidor (en example.com, el servidor TLD es "com").</p>
+          <p>Servidor de nombres autoritativo:se puede interpretar como un diccionario en una estantería de libros, en el que se puede consultar la definición de un nombre específico. El servidor de nombres autoritativo es la última parada en la consulta del servidor de nombres. Si cuenta con acceso al registro solicitado, devolverá la dirección IP del nombre del servidor solicitado al recursor de DNS (el bibliotecario) que hizo la solicitud inicial.</p>
+            
         </div>
+        
 
         <div class="concept">
             <h3>Frontend y Backend</h3>
